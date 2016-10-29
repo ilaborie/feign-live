@@ -1,8 +1,9 @@
 package org.ilaborie.feign.client;
 
-import feign.Feign;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
+import feign.hystrix.HystrixFeign;
+import rx.Observable;
 
 public class Main {
 
@@ -10,7 +11,7 @@ public class Main {
     String url = "http://localhost:8080/api/cats";
 
     // Get Client with CircuitBreaker
-    CatClient client = Feign.builder()
+    CatClient client = HystrixFeign.builder()
         .decoder(new GsonDecoder())
         .encoder(new GsonEncoder())
         .requestInterceptor(System.out::println)
@@ -18,7 +19,9 @@ public class Main {
 
     // Find All
     client.findAll()
+        .flatMap(Observable::from)
+        .map(Cat::getName)
+        .toBlocking()
         .forEach(System.out::println);
   }
-
 }
