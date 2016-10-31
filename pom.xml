@@ -15,11 +15,20 @@
 
     <maven-shade-plugin.version>2.3</maven-shade-plugin.version>
     <main.class>org.ilaborie.feign.client.Main</main.class>
-    <!-- Feign version -->
-    <feign.version>9.3.1</feign.version>
+    <retrofit.version>2.1.0</retrofit.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>retrofit</artifactId>
+      <version>${retrofit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.retrofit2</groupId>
+      <artifactId>converter-gson</artifactId>
+      <version>${retrofit.version}</version>
+    </dependency>
   </dependencies>
 
 
