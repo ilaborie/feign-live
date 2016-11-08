@@ -2,6 +2,7 @@ package org.ilaborie.feign.client;
 
 import feign.Headers;
 import feign.RequestLine;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -9,6 +10,6 @@ import java.util.List;
 public interface CatClient {
 
   @RequestLine("GET /")
-  List<Cat> findAll();
+  Mono<List<Cat>> findAll();
 
 }

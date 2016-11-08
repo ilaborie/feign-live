@@ -31,6 +31,11 @@
       <artifactId>feign-gson</artifactId>
       <version>${feign.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.ilaborie.feign</groupId>
+      <artifactId>feign-reactor</artifactId>
+      <version>0.0.1</version>
+    </dependency>
 
     <dependency>
       <groupId>ch.qos.logback</groupId>
